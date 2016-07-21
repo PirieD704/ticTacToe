@@ -1,0 +1,54 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+
+
+
+	<title></title>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+
+</head>
+<body>
+	
+
+
+	<div class="title-wrapper">
+		<h1> TIC TAC TOE</h1>
+		<div class="player-selection">
+		<button id="player1Option" onClick="play1Player()" value="1 Player">1 Player</button>
+		<button id="player2Option" value="2 Player">2 Player</button>
+
+		</div>
+		<h2 id="message"></h2>
+	</div>
+
+	<div class="game-wrapper">
+
+		<div class="board-row-1 board-row">
+			<button id="A1" class="box" onClick="markSquare(this)">-</button>
+			<button id="A2" class="box" onClick="markSquare(this)">-</button>
+			<button id="A3" class="box" onClick="markSquare(this)">-</button>
+		</div>
+		<div class="board-row-2 board-row">
+			<button id="B1" class="box" onClick="markSquare(this)">-</button>
+			<button id="B2" class="box" onClick="markSquare(this)">-</button>
+			<button id="B3" class="box" onClick="markSquare(this)">-</button>
+		</div>
+		<div class="board-row-3 board-row">
+			<button id="C1" class="box" onClick="markSquare(this)">-</button>
+			<button id="C2" class="box" onClick="markSquare(this)">-</button>
+			<button id="C3" class="box" onClick="markSquare(this)">-</button>
+		</div>
+	</div>
+
+
+
+
+<script type="text/javascript" src="scripts.js"></script>
+</body>
+</html>
