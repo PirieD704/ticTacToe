@@ -9,7 +9,7 @@ var winners = [
 ["A1", "B1", "C1"], // Col 1
 ["A2", "B2", "C2"], // Col 2
 ["A3", "B3", "C3"], //Col 3
-["A3", "B2", "C3"] //Other diag
+["A3", "B2", "C1"] //Other diag
 ];
 
 var aiActivate = false;
