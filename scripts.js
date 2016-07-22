@@ -5,7 +5,7 @@ var whosTurn = 1; //start off on player 1's turn
 
 var alph = ['a','b','c','d','e','f','g','h','i'];
 var winners = [];
-var gridSize = 5;
+var gridSize = 7;
 
 // a0,a1,a2,a3,a4,...aN
 // b0,b1,b2,b3,b4,...bN
@@ -15,8 +15,8 @@ var diag2 = [];
 
 
 for (var i = 0; i < gridSize; i++){
-	diag.push(alph[i] + i);
-	diag.push(alph[i] + (gridSize-i))
+	diag1.push(alph[i] + i);
+	diag2.push(alph[i] + ((gridSize - 1) - i));
 	var winnersInsideH = [];
 	var winnersInsideV= [];
 	for (var j = 0; j < gridSize; j++){
@@ -30,10 +30,30 @@ for (var i = 0; i < gridSize; i++){
 }
 
 winners.push(diag1);
-winner.push(diag2);
+winners.push(diag2);
+console.log(diag1);
+console.log(diag2);
 
 // 1. Build a winners array
 // 2. We need to populate the board
+var htmlForTheBoard = "";
+var boxWidth = (100/gridSize) - (gridSize - 1);
+var marginWidth = gridSize;
+var inLineStyle1 = 
+for (var i = 0; i < gridSize; i++){
+	htmlForTheBoard += '<div class="board-row">';
+		for(var j = 0;j<gridSize; j++){
+			if (j === 0){
+				htmlForTheBoard += '<button id="' + alph[i] + j + '" class="box" style="width: ' +boxWidth+'%; margin-left: 0" onClick="markSquare(this)">-</button>';
+			}else{
+				htmlForTheBoard += '<button id="' + alph[i] + j + '" class="box" style="width: ' +boxWidth+'%; margin-left: ' + marginWidth + '%" onClick="markSquare(this)">-</button>';
+			}
+
+		}
+	htmlForTheBoard += '</div>';
+}
+
+document.getElementsByClassName('game-wrapper')[0].innerHTML = htmlForTheBoard;
 
 var aiActivate = false;
 var player1 = []; // Array were we will stash 
@@ -59,7 +79,7 @@ function markSquare(square) {
 			whosTurn = 2;
 			player1.push(square.id);
 			checkWin(player1, 1);
-			if ((aiActivate) && (player1.length < 5)){
+			if ((aiActivate) && (player1.length < 13)){
 				makeAiMove(aiMove());
 				// square.innerHTML = 'O';
 				whosTurn = 1;
@@ -82,8 +102,8 @@ function markSquare(square) {
 function aiMove(){
 	
 	function getMove(){
-		var moveChoice1 = Math.floor(Math.random() * 8);
-		var moveChoice2 = Math.floor(Math.random() * 3);
+		var moveChoice1 = Math.floor(Math.random() * 12);
+		var moveChoice2 = Math.floor(Math.random() * gridSize);
 		var move = winners[moveChoice1][moveChoice2];
 
 		return move;
@@ -119,7 +139,7 @@ function checkWin(currentPlayersSquares, whoJustMarked){
 				//HIT!
 				rowCount++;
 			}
-			if(rowCount == 3){
+			if(rowCount == gridSize){
 				//BINGO!!!!
 				gameOver(whoJustMarked, winners[i]);
 			}
