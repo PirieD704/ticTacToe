@@ -1,16 +1,12 @@
 
+
+//N Size Version
 var whosTurn = 1; //start off on player 1's turn
 
-var winners = [
-["A1", "A2", "A3"],//row A
-["B1", "B2", "B3"],//row B
-["C1", "C2", "C3"],//row C
-["A1", "B2", "C3"],// Diag
-["A1", "B1", "C1"], // Col 1
-["A2", "B2", "C2"], // Col 2
-["A3", "B3", "C3"], //Col 3
-["A3", "B2", "C1"] //Other diag
-];
+var winners = [];
+
+// 1. Build a winners array
+// 2. We need to populate the board
 
 var aiActivate = false;
 var player1 = []; // Array were we will stash 
