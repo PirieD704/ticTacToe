@@ -17,6 +17,10 @@ var player1 = []; // Array were we will stash
 var player2 = [];
 var someoneWon = false;
 
+$('.box').click(function(){
+	markSquare(this);
+})
+
 function play1Player(){
 	aiActivate = true;
 }
